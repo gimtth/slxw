@@ -1,0 +1,22 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Base.Theme.Yst" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/sl_news_blue</item>
+        <item name="colorPrimaryDark">@color/sl_news_blue_dark</item>
+        <item name="colorAccent">@color/sl_news_blue</item>
+        <item name="android:fontFamily">sans</item>
+        <item name="android:windowBackground">@color/sl_background</item>
+        <item name="android:navigationBarColor">@color/sl_background</item>
+        <item name="android:statusBarColor">@color/sl_background</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowLightNavigationBar">true</item>
+        <item name="materialButtonStyle">@style/Widget.Yst.Button.Primary</item>
+    </style>
+
+    <style name="Theme.Yst" parent="Base.Theme.Yst" />
+
+    <style name="Widget.Yst.Button.Primary" parent="Widget.Material3.Button">
+        <item name="backgroundTint">@color/sl_news_blue</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="cornerRadius">8dp</item>
+    </style>
+</resources>
