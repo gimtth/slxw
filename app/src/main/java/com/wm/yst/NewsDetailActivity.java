@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,7 +25,7 @@ public class NewsDetailActivity extends AppCompatActivity {
     private TextView tvCollect;
     private TextView tvState;
     private WebView webContent;
-    private Button btnOpenOriginal;
+    private TextView btnOpenOriginal;
     private NewsItem newsItem;
     private NewsDbHelper dbHelper;
     private SessionManager sessionManager;

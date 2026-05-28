@@ -37,7 +37,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
         holder.tvTitle.setText(item.getTitle());
         holder.tvMeta.setText(buildMeta(item));
         Glide.with(holder.ivThumb)
-                .load(item.getThumbnailPicS())
+                .load(normalizeImageUrl(item))
                 .placeholder(R.drawable.bg_news_thumb)
                 .error(R.drawable.bg_news_thumb)
                 .centerCrop()
@@ -67,6 +67,33 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
         String date = item.getDate() == null ? "" : item.getDate();
         String category = item.getCategory() == null ? "" : item.getCategory();
         return source + "  " + category + "  " + date;
+    }
+
+    private String normalizeImageUrl(NewsItem item) {
+        String url = firstNotBlank(
+                item.getThumbnailPicS(),
+                item.getThumbnailPicS02(),
+                item.getThumbnailPicS03()
+        );
+        if (url == null) {
+            return null;
+        }
+        if (url.startsWith("//")) {
+            return "https:" + url;
+        }
+        if (url.startsWith("http://")) {
+            return url.replaceFirst("http://", "https://");
+        }
+        return url;
+    }
+
+    private String firstNotBlank(String... values) {
+        for (String value : values) {
+            if (value != null && !value.trim().isEmpty()) {
+                return value.trim();
+            }
+        }
+        return null;
     }
 
     public interface OnNewsClickListener {
